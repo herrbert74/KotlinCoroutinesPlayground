@@ -1,0 +1,11 @@
+.gradle
+/local.properties
+.DS_Store
+/build
+/buildSrc/build/
+
+# IDEA/Android Studio project files
+*.iml
+.idea/*
+!.idea/codeStyles
+
