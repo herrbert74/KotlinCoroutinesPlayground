@@ -2,6 +2,11 @@ package com.babestudios.coroutines.part2.section1builders
 
 import kotlinx.coroutines.*
 
+/**
+ * Async is immediately started, so it prints the Start lines.
+ * It will either finish with a Deferred result, or suspend until returns, when the await function is called.
+ * So the res3 will finish before res2, but the result will only be printed immediately after res 2.
+ */
 suspend fun main() {
 	coroutineScope {
 		val t = System.currentTimeMillis()

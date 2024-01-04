@@ -1,12 +1,15 @@
 package com.babestudios.coroutines.part1.suspension
 
+import kotlinx.coroutines.delay
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 suspend fun main() {
     println("Before")
-    suspendCoroutine<Unit> { continuation ->
-        continuation.resume(Unit)
+    val t = suspendCoroutine<Int> { continuation ->
+
+        continuation.resume(5)
     }
-    println("After")
+    delay(3000)
+    println("After: $t")
 }
