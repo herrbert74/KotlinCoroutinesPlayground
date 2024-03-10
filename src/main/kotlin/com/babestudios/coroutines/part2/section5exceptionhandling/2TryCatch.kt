@@ -11,7 +11,9 @@ fun main(): Unit = runBlocking {
 			delay(1000)
 			throw Exception("Some error")
 		}
-	} catch (e: Throwable) { // nope, does not help here println("Will not be printed")
+	} catch (e: Throwable) {
+		// nope, does not help here
+		println("Will not be printed")
 	}
 	launch {
 		delay(2000)
