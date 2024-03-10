@@ -6,6 +6,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
+/**
+ * Each child might have a specific context defined in the argument.
+ * This context overrides the one from the parent. Compare it with the previous one.
+ */
 fun main() = runBlocking(CoroutineName("main")) {
 	log("Started") // [main] Started
 	val v1 = async(CoroutineName("c1")) {

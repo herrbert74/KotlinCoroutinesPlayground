@@ -3,6 +3,9 @@ package com.babestudios.coroutines.part2.section2coroutinecontext
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.Job
 
+/**
+ * Unlike the plus operator, he minus operator is NOT overloaded for CoroutineContext.
+ */
 fun main() {
 	val ctx = CoroutineName("Name1") + Job()
 	println(ctx[CoroutineName]?.name) // Name1

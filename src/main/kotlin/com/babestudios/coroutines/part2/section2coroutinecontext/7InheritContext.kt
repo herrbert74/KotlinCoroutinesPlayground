@@ -12,6 +12,10 @@ fun CoroutineScope.log(msg: String) {
 	println("[$name] $msg")
 }
 
+/**
+ * By default, the parent passes its context to the child, which is one of the parent-child relationship effects.
+ * We say that the child inherits context from its parent. Compare it with the next one.
+ */
 fun main() = runBlocking(CoroutineName("main")) {
 	log("Started") // [main] Started
 	val v1 = async {

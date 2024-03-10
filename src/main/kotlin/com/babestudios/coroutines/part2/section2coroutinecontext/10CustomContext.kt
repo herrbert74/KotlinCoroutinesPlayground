@@ -5,6 +5,13 @@ import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.coroutineContext
 
+/**
+ * we can create our own coroutine context pretty easily.
+ * To do this, the easiest way is to create a class that implements the CoroutineContext.Element interface.
+ * Such a class needs a property key of type CoroutineContext.Key<*>.
+ * This key will be used as the key that identifies this context.
+ * The common practice is to use this class’s companion object as a key.
+ */
 class CounterContext(private val name: String) : CoroutineContext.Element {
 
 	override val key: CoroutineContext.Key<*> = Key
