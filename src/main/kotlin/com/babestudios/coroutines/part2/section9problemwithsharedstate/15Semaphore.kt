@@ -1,7 +1,11 @@
 package com.babestudios.coroutines.part2.section9problemwithsharedstate
 
-import kotlinx.coroutines.*
-import kotlinx.coroutines.sync.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
+
 
 /**
  * If we mentioned Mutex, we should also mention Semaphore, which works in similar way, but can have more than one
