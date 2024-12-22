@@ -20,7 +20,7 @@ suspend fun main() {
  * The typical use of flatMapMerge is when we need to request data for each element in a flow. For instance, we have a
  * list of categories, and you need to request offers for each of them. You already know that you can do this with the
  * async function. There are two advantages of using a flow with flatMapMerge instead:
- * • wecancontroltheconcurrencyparameteranddecidehowmanycategories we want to fetch at the same time
+ * • we can control the concurrency parameter and decide how many categories we want to fetch at the same time
  * (to avoid sending hundreds of requests at the same time);
  * • we can return Flow and send the next elements as they arrive (so, on the function-use side, they can be handled
  * immediately).
@@ -48,7 +48,7 @@ suspend fun main() {
  * flatMapMerge introduces asynchrony only for the collection of the flows, not for their creation.
  * flatMapMerge has a special behavior for the concurrency parameter set to 1. In this case, it behaves like
  * flatMapConcat. That is not consistent with the other values of flatMapMerge, because flatMapConcat operates on one
- * coroutine only (for producing and collecting its flows), and flatMapMerge operates on one corou- tine for producing
+ * coroutine only (for producing and collecting its flows), and flatMapMerge operates on one coroutine for producing
  * and the number of coroutines for collecting constrained by the concurrency parameter (so for concurrently set to 1
  * it should operate on 2 coroutines, not 1).
  */

@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	kotlin("jvm") version "1.9.23"
+	kotlin("jvm") version "2.1.0"
 	application
 }
 
@@ -13,19 +13,19 @@ repositories {
 }
 
 dependencies {
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0")
-	testImplementation("org.jetbrains.kotlin:kotlin-test:1.9.21")
-	testImplementation("io.mockk:mockk:1.13.9")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.0")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.0")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.0")
+	testImplementation("org.jetbrains.kotlin:kotlin-test:2.1.0")
+	testImplementation("io.mockk:mockk:1.13.14")
 }
 
 tasks.test {
 	useJUnitPlatform()
 }
 
-tasks.withType<KotlinCompile> {
-	kotlinOptions.jvmTarget = "17"
+kotlin {
+	jvmToolchain(21)
 }
 
 application {
@@ -33,9 +33,9 @@ application {
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-	kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+	compilerOptions.freeCompilerArgs.add("-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi")
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-	kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.coroutines.DelicateCoroutinesApi"
+	compilerOptions.freeCompilerArgs.add("-opt-in=kotlinx.coroutines.DelicateCoroutinesApi")
 }
